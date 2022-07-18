@@ -1,4 +1,4 @@
-#module import
+# module import
 import random
 
 import pickle
@@ -7,9 +7,10 @@ from time import sleep
 
 from random import choices
 
-#player class
+
+# player class
 class player:
-    def __init__(self, n="name", g = 0, mnd = 0, mxd = 0, h = 0, d = 0):
+    def __init__(self, n="name", g=0, mnd=0, mxd=0, h=0, d=0):
         self.name = n
         self.gold = g
         self.mindamage = mnd
@@ -17,15 +18,17 @@ class player:
         self.health = h
         self.defense = d
 
-#inventory class
+
+# inventory class
 class invertory:
     def __init__(self, n="name"):
-        self.item1 = n 
+        self.item1 = n
         self.item2 = n
         self.item3 = n
         self.item4 = n
 
-#item class
+
+# item class
 class item:
     def __init__(self, n="name", d="description", a1=0, a2=0, a3=0, u=1):
         self.name = n
@@ -35,9 +38,10 @@ class item:
         self.defense = a3
         self.uses = u
 
-#enemie class
+
+# enemie class
 class enemie:
-    def __init__(self, n="name", i="item", g = 0, mnd = 0, mxd = 0, h = 0, d = 0):
+    def __init__(self, n="name", i="item", g=0, mnd=0, mxd=0, h=0, d=0):
         self.name = n
         self.item = i
         self.gold = g
@@ -46,42 +50,48 @@ class enemie:
         self.health = h
         self.defense = d
 
+
 sleep(1.0)
 
 print("\n")
 
-#name option(string)
+# name option(string)
 namep = input('Enter your name: ')
 
-#player stats generator
-player1 = player(namep, 1, 1, random.randint(5,30), 100)    
+# player stats generator
+player1 = player(namep, 1, 1, random.randint(5, 30), 100)
 
 action = -2
 sleep(1.0)
 
 print("\n")
 
-#save ask
+# save ask
 yOrN = input('load save?(only if you already played) y/n: ')
 
-#save function
+
+# save function
 def save():
-    pickle.dump([action, player1.maxdamage, player1.mindamage, player1.gold, player1.health, player1.defense], open("save.pi", "wb"))
+    pickle.dump([action, player1.maxdamage, player1.mindamage, player1.gold, player1.health, player1.defense],
+                open("save.pi", "wb"))
 
-#save load
+
+# save load
 if yOrN == "y":
-    action, player1.maxdamage, player1.mindamage, player1.gold, player1.health, player1.defense = pickle.load(open("save.pi", "rb"))
+    action, player1.maxdamage, player1.mindamage, player1.gold, player1.health, player1.defense = pickle.load(
+        open("save.pi", "rb"))
 
-#debug starter
+# debug starter
 if namep == "debug":
-   action = int(input('actionValue: '))
-   player1.maxdamage = int(input('maxDamage: '))
-   player1.mindamage = int(input('minDamage: '))
-   player1.gold = int(input('goldValue: '))
-   player1.health = int(input('healthValue(100 recomended): '))
-   player1.defense = int(input('defenseValue: '))
+    action = int(input('actionValue: '))
+    player1.maxdamage = int(input('maxDamage: '))
+    player1.mindamage = int(input('minDamage: '))
+    player1.gold = int(input('goldValue: '))
+    player1.health = int(input('healthValue(100 recomended): '))
+    player1.defense = int(input('defenseValue: '))
 
-#functions
+
+# functions
 def playerStats():
     print("name        =", player1.name)
     print("gold        =", player1.gold)
@@ -89,6 +99,7 @@ def playerStats():
     print("max damage  =", player1.maxdamage)
     print("health      =", player1.health)
     print("defense     =", player1.defense)
+
 
 def randEneStat():
     print("name        =", enemieFight.name)
@@ -98,27 +109,28 @@ def randEneStat():
     print("health      =", enemieFight.health)
     print("defense     =", enemieFight.defense)
 
-#All the game choices are a epecific action from 1 to 5
-#All the game levels are a epecific action from -... to 0 and 6 to ...  
 
-#action -2
+# All the game choices are a epecific action from 1 to 5
+# All the game levels are a epecific action from -... to 0 and 6 to ...
+
+# action -2
 while action > -3 and action < -1:
-    #save
+    # save
     save()
- 
-    sleep(1.0)
-
-    print("\n")
-    
-    #stat list(player greeting)
-    print("Hello", player1.name,"! You have",player1.gold,"gold, do",player1.mindamage,"min damage and",player1.maxdamage,"max damage.")
 
     sleep(1.0)
 
     print("\n")
-    
-    #stat list(again)
 
+    # stat list(player greeting)
+    print("Hello", player1.name, "! You have", player1.gold, "gold, do", player1.mindamage, "min damage and",
+          player1.maxdamage, "max damage.")
+
+    sleep(1.0)
+
+    print("\n")
+
+    # stat list(again)
 
     sleep(1.0)
 
@@ -134,22 +146,22 @@ while action > -3 and action < -1:
     sleep(1.0)
 
     print("\n")
-    
-    #y/n action(select)
+
+    # y/n action(select)
     yOrN = input('Continue? y/n: ')
 
     sleep(1.0)
 
     print("\n")
 
-    #if yes (action 0 starter)
+    # if yes (action 0 starter)
     if yOrN == "y":
         print("Finally someone want to play!")
         sleep(1.0)
         action = 0
-    #if not yes
+    # if not yes
     else:
-        #if no(end program)
+        # if no(end program)
         if yOrN == "n":
             sleep(1.0)
 
@@ -158,21 +170,21 @@ while action > -3 and action < -1:
             print("Fuck you, :(")
 
             sleep(1.0)
-        
-        #if not "no"
+
+        # if not "no"
         else:
             yOrN = input('Wtf?! i just want to known y/n: ')
             sleep(1.0)
-            
-            #if yes(action 0 starter)
+
+            # if yes(action 0 starter)
             if yOrN == "y":
                 print("\n")
                 print("Finally someone want to play!")
                 sleep(1.0)
                 action = 0
-            #if not yes
+            # if not yes
             else:
-                #if no(end program)
+                # if no(end program)
                 if yOrN == "n":
                     sleep(1.0)
 
@@ -180,763 +192,772 @@ while action > -3 and action < -1:
 
                     print("Fuck you then, :(")
                     sleep(1.0)
-                #if not "no"(end program)
+                # if not "no"(end program)
                 else:
                     print("\n")
                     print("...")
                     sleep(1.0)
-                    
-#action 0 loop  
+
+# action 0 loop
 while action > -1 and action < 1:
-    #save
+    # save
     save()
-    
-    
+
     print("\n")
 
     print("You arrive in a tavern full of suspicious looking 'Rupers'")
-    
+
     sleep(1.0)
-    
+
     print("\n")
-    
-    #action list
+
+    # action list
     print("1: Walk away")
     print("2: Talk to the bartender")
     print("3: Say a racial slur(very bad)")
-    
+
     sleep(1.0)
-    
+
     print("\n")
 
-    #action select
+    # action select
     action = int(input("What do? : "))
-    
-    #stop palyer form going above 3 actions
+
+    # stop palyer form going above 3 actions
     if action > 3:
         action = 1
-    
+
     sleep(1.0)
-    
-    #walk away action
+
+    # walk away action
     if action == 1:
-    
         print("\n")
-    
+
         print("You walk away. Wtf where you expecting?")
-        
+
         sleep(1.0)
-        
+
         print("\n")
-        
+
         print("You go inside without knowing what were you doing")
-        
+
         action = 0
-    
-    #bartender action(action -1 starter)
+
+    # bartender action(action -1 starter)
     if action == 2:
-        
         print("\n")
-    
+
         print("You walk to the bartender")
-        
+
         sleep(1.0)
-        
+
         action = -1
-    
-    #racial action
+
+    # racial action
     if action == 3:
-    
+
         print("\n")
-        
+
         print("A bunch of Rupers got mad at you")
         print("(i warned your fucking racist ass).")
         print("Wtf were you thinking?")
-        
+
         sleep(1.0)
-        
-        print("\n")
-        
-        print("You enter combat")
-        
-        sleep(1.0)
-    
+
         print("\n")
 
-        #stats
-        playerStats()
-        
+        print("You enter combat")
+
         sleep(1.0)
-    
+
+        print("\n")
+
+        # stats
+        playerStats()
+
+        sleep(1.0)
+
         print("\n")
 
         print("name =        Bunch Of Mad Rupers", )
         print("min damage = ", 1.00)
         print("max damage = ", 999999999999999999)
         print("health =     ", 10000)
-        
+
         sleep(1.0)
-    
+
         print("\n")
-        
-        #action list
+
+        # action list
         print("1: Attack")
         print("2: Run away")
         print("3: Say sorry(very nice :) )")
 
         sleep(1.0)
-    
+
         print("\n")
-        
-        #action select
+
+        # action select
         action = int(input("What do? : "))
-        
+
         if action > 3:
             action = 1
-        
+
         if action > 5:
             action = 1
-        
-        #attack action(incomplete)
+
+        # attack action(incomplete)
         if action == 1:
-            
-            sleep(1.0)
-        
-            print("\n")
-             
-            print("You attack!")
-            
-            sleep(1.0)
-        
-            print("\n")
-            
-            damagesad = random.randint(player1.mindamage, player1.maxdamage)
-            
-            print("you deal", damagesad, "damage", "leaving the enemy with", 10000 - damagesad, "hp")
-            
-            sleep(1.0)
-        
-            print("\n")
-            
-            print("I gonna save you the trouble...")           
-            
-            sleep(1.0)
-        
-            print("\n")
-            
-            deaths = ["You got annaly raped by a sjw and died", "You got sued for racism and died of aids", "You got imaginary banned from twitter and got sentenced to death(and aids)"]
-            randomDeath = random.choice(deaths)
-            print(randomDeath) 
 
             sleep(1.0)
-        
+
             print("\n")
-            
-            #restart action
+
+            print("You attack!")
+
+            sleep(1.0)
+
+            print("\n")
+
+            damagesad = random.randint(player1.mindamage, player1.maxdamage)
+
+            print("you deal", damagesad, "damage", "leaving the enemy with", 10000 - damagesad, "hp")
+
+            sleep(1.0)
+
+            print("\n")
+
+            print("I gonna save you the trouble...")
+
+            sleep(1.0)
+
+            print("\n")
+
+            deaths = ["You got analy raped by a sjw and died",
+                      "You got sued for racism and died of aids",
+                      "You got imaginary banned from twitter and got sentenced to death(and aids)"]
+            randomDeath = random.choice(deaths)
+            print(randomDeath)
+
+            sleep(1.0)
+
+            print("\n")
+
+            # restart action
             yOrN = input('Restart? y/n: ')
-            
+
             if yOrN == "y":
                 action = 0
-        
-        #try to run action
+
+        # try to run action
         if action == 2:
             sleep(1.0)
-            
-            print("\n")
-            
-            print("You failed and fall")
-            
-            sleep(1.0)
-            
-            print("\n")
-            
-            print("You are in a position called 'Soap boy'...")
-            
-            sleep(1.0)
-            
-            print("\n")
-            
-            print("Well...")
-            
-            sleep(1.0)
-        
+
             print("\n")
 
-            deaths = ["You got annaly raped by a sjw and died", "You got sued for racism and died of aids", "You got imaginary banned from twitter and got sentenced to death(and aids)"]
-            randomDeath = random.choice(deaths)
-            print(randomDeath)     
-            
+            print("You failed and fall")
+
             sleep(1.0)
-        
+
             print("\n")
-            
-            #restart action
+
+            print("You are in a position called 'Soap boy'...")
+
+            sleep(1.0)
+
+            print("\n")
+
+            print("Well...")
+
+            sleep(1.0)
+
+            print("\n")
+
+            deaths = ["You got analy raped by a sjw and died",
+                      "You got sued for racism and died of aids",
+                      "You got imaginary banned from twitter and got sentenced to death(and aids)"]
+            randomDeath = random.choice(deaths)
+            print(randomDeath)
+
+            sleep(1.0)
+
+            print("\n")
+
+            # restart action
             yOrN = input('Restart? y/n: ')
-            
+
             if yOrN == "y":
                 action = 0
-        #sorrya action
+        # sorrya action
         if action == 3:
             sleep(1.0)
-            
-            print("\n")
-            
-            print("You say sorry and...")
-            
-            sleep(3)
-            
-            print("\n")
-            
-            print("Dont work")
-            
-            sleep(1.0)
-            
-            print("\n")
-            
-            print("Last words?")
-            
-            sleep(1.0)
-            
-            print("\n")
-            
-            #y/n option(select)
-            yOrN = input('Say racial slur? y/n: ')
-            
-            sleep(1.0)
-            
-            print("\n")
-            
-            #if yes
-            if yOrN == "y":                
-                deaths = ["You got annaly raped by a sjw and died. But you're based", "You got sued for racism and died of aids. But you're based", "You got imaginary banned from twitter and got sentenced to death(and aids). But you're based"]
-                randomDeath = random.choice(deaths)
-                print(randomDeath) 
-                
-                sleep(1.0)
-        
-                print("\n")
-                
-                yOrN = input('Restart? y/n: ')           
-            
-                if yOrN == "y":
-                    action = 0
-            #if not yes
-            else:
-                deaths = ["You got annaly raped by a sjw and died. But you're not based", "You got sued for racism and died of aids. But you're not based", "You got imaginary banned from twitter and got sentenced to death(and aids). But you're not based"]
-                randomDeath = random.choice(deaths)
-                print(randomDeath) 
-                
-                sleep(1.0)
-            
-                print("\n")
-                
-                #y/n action(select)
-                yOrN = input('Restart? y/n: ')    
-                
-                #if yes
-                if yOrN == "y":
-                    action = 0
-                    
-    
-#action -1 loop    
-while action > -2 and action < 0:  
-    #save 
-    save()
-    
 
-    #y/n option (select)
+            print("\n")
+
+            print("You say sorry and...")
+
+            sleep(3)
+
+            print("\n")
+
+            print("Dont work")
+
+            sleep(1.0)
+
+            print("\n")
+
+            print("Last words?")
+
+            sleep(1.0)
+
+            print("\n")
+
+            # y/n option(select)
+            yOrN = input('Say racial slur? y/n: ')
+
+            sleep(1.0)
+
+            print("\n")
+
+            # if yes
+            if yOrN == "y":
+                deaths = ["You got analy raped by a sjw and died. But you're based",
+                          "You got sued for racism and died of aids. But you're based",
+                          "You got imaginary banned from twitter and got sentenced to death(and aids). But you're based"]
+                randomDeath = random.choice(deaths)
+                print(randomDeath)
+
+                sleep(1.0)
+
+                print("\n")
+
+                yOrN = input('Restart? y/n: ')
+
+                if yOrN == "y":
+                    action = 0
+            # if not yes
+            else:
+                deaths = ["You got analy raped by a sjw and died. But you're not based",
+                          "You got sued for racism and died of aids. But you're not based",
+                          "You got imaginary banned from twitter and got sentenced to death(and aids). But you're not based"]
+                randomDeath = random.choice(deaths)
+                print(randomDeath)
+
+                sleep(1.0)
+
+                print("\n")
+
+                # y/n action(select)
+                yOrN = input('Restart? y/n: ')
+
+                # if yes
+                if yOrN == "y":
+                    action = 0
+
+# action -1 loop
+while action > -2 and action < 0:
+    # save
+    save()
+
+    # y/n option (select)
     print("\n")
 
     yOrN = input('He ask if you want to take a drink (- 1 gold) y/n: ')
-    
-    #if yes
+
+    # if yes
     if yOrN == "y":
         sleep(1.0)
-                
-        print("\n")
-        
-        print("The bartender says with rage 'What is this?")
-        print("Do you think a drink is that cheap? Are you")
-        print("fucking retarded? This is such a disrepect")
-        print("that i will keep your gold'")
-        
-        player1.gold = player1.gold - 1
-        
-        sleep(1.0)
-                
-        print("\n")
-        
-        print("-1 gold")
-        
-        sleep(1.0)
-        
+
         print("\n")
 
-        #stats
-        playerStats()
-        
-        action = 6 
-    
-    #if not yes
-    else:   
+        print("The bartender says with rage 'What is this?")
+        print("Do you think a drink is that cheap? Are you")
+        print("fucking retarded? This is such a disrespect")
+        print("that i will keep your gold'")
+
+        player1.gold = player1.gold - 1
+
         sleep(1.0)
-                
+
         print("\n")
-        
+
+        print("-1 gold")
+
+        sleep(1.0)
+
+        print("\n")
+
+        # stats
+        playerStats()
+
+        action = 6
+
+        # if not yes
+    else:
+        sleep(1.0)
+
+        print("\n")
+
         print("The bartender look at you and say 'That dude")
         print("just stole your gold'")
 
         sleep(1.0)
-                
-        print("\n")
-        
-        player1.gold = player1.gold - 1
-        
-        print("-1 gold")
-        
-        sleep(1.0)
-        
+
         print("\n")
 
-        #stats
+        player1.gold = player1.gold - 1
+
+        print("-1 gold")
+
+        sleep(1.0)
+
+        print("\n")
+
+        # stats
         playerStats()
-        
-        action = 6 
-    
-#action 6 loop
+
+        action = 6
+
+# action 6 loop
 while action > 5 and action < 7:
-    #save
+    # save
     save()
-    
-    
+
     sleep(1.0)
-    
+
     print("\n")
-    
+
     print("Bartender ask 'something else'")
-    
+
     sleep(1.0)
-    
+
     print("\n")
-    
-    #action list
+
+    # action list
     print("1: Info")
     print("2: Fuck you")
     print("3: Leave")
-    
+
     sleep(1.0)
-    
+
     print("\n")
 
-    #action select
+    # action select
     action = int(input("What do? : "))
-    
-    #stop palyer form going above 3 actions
+
+    # stop palyer form going above 3 actions
     if action > 3:
         action = 1
-  
-    #info action
+
+    # info action
     if action == 1:
         sleep(1.0)
-    
+
         print("\n")
-        
+
         print("Bartender says 'You look like a 'soap boy'.")
         print("What such a young and retarded boy is doing")
         print("here is Homo Duro?'")
-        
+
         sleep(1.0)
-    
+
         print("\n")
-        
-        #action list
+
+        # action list
         print("1: Prostitution")
         print("2: You're fucking weird")
         print("3: Idk")
 
         sleep(1.0)
-    
+
         print("\n")
-        
-        #action select
+
+        # action select
         action = int(input("What do? : "))
-        
-        #stop player from going above 3 actions
+
+        # stop player from going above 3 actions
         if action > 3:
             action = 1
-        
-        #prostitution action
+
+        # prostitution action
         if action == 1:
             sleep(1.0)
-    
+
             print("\n")
-            
+
             print("Bartender ask 'Would you tell my wife?'")
-            
+
             sleep(1.0)
-    
+
             print("\n")
-            
+
             print("You have increased your combat level")
-           
+
             sleep(1.0)
-    
+
             print("\n")
-            
-            gainDMG = random.randint(1,10)
-            
-            print("+",gainDMG,"max damage")
-            
+
+            gainDMG = random.randint(1, 10)
+
+            print("+", gainDMG, "max damage")
+
             player1.maxdamage = player1.maxdamage + gainDMG
-            
+
             sleep(1.0)
-    
+
             print("\n")
-            
-            #stats
+
+            # stats
             playerStats()
-            
+
             sleep(1.0)
-    
+
             print("\n")
-            
+
             print("You leave")
-            
+
             action = 7
-         
-        #weird action
+
+        # weird action
         if action == 2:
             sleep(1.0)
-    
+
             print("\n")
-            
+
             print("Bartender says 'this city is weird'")
-               
+
             action = 4
-        
-        #idk action(player is lazy)
+
+        # idk action(player is lazy)
         if action == 3:
             sleep(1.0)
-    
+
             print("\n")
-            
-            print("You are the reasom most RPG games sucks. Make a real decision you gormless minger")
-            
+
+            print("You are the reason most RPG games sucks. Make a real decision you gormless minger")
+
             sleep(1.0)
-    
+
             print("\n")
-            
+
             print("Bartender says 'you're beyond than just a retard'")
-            
+
             action = 6
-        
-        #action 4(neutral action)
+
+        # action 4(neutral action)
         if action == 4:
             print("You say 'ok'")
             action = 6
-            
-    #being a dick action
+
+    # being a dick action
     if action == 2:
         sleep(1.0)
-    
+
         print("\n")
-        
-        #he really does
+
+        # he really does
         print('#The player deserves this for being such a buffoon')
-        
+
         sleep(1.0)
-    
+
         print("\n")
-        
+
         print("Fuck you too")
-        
+
         action = 6
-    
-    #action leave (action 7 starter)
-    if action == 3:      
+
+    # action leave (action 7 starter)
+    if action == 3:
         sleep(1.0)
-    
+
         print("\n")
-            
+
         print("You say goodbye to the bartender and leave")
-            
+
         action = 7
-        
-        
- 
-#action 7
-#action 7 "counter variables" 
+
+# action 7
+# action 7 "counter variables"
 enemiesLeft = 5
 worksLeft = 5
 begsLeft = 5
-#loop start here     
+# loop start here
 while action > 6 and action < 8:
-    #save
+    # save
     save()
 
-    #action menu
+    # action menu
     sleep(1.0)
-    
+
     print("\n")
-        
+
     print("You go to the tavern front door")
 
     sleep(1.0)
-    
-    print("\n")               
-    
+
+    print("\n")
+
     print("1: Talk to the weird dude on the tavern door")
     print("2: Fight a beggar")
     print("3: Sell your body")
     print("4: Beg")
     print("5: Go to walmart™")
-    
+
     sleep(1.0)
-    
-    print("\n") 
-    
-    #action select
+
+    print("\n")
+
+    # action select
     action = int(input("What do? : "))
-    
-    #stop player from going above 5 actions
+
+    # stop player from going above 5 actions
     if action > 5:
         action = 1
-       
-    #boss fight action
+
+    # boss fight action
     if action == 1:
-        #boss stats
+        # boss stats
         boss1 = enemie("Utilmate Upper Class Non Beggar", "", 100, 1, 20, 50, 0)
-        
+
         sleep(1.0)
-    
+
         print("\n")
-        
+
         print("The weird dude ask you to fill a form and before you say")
-        print("anythinhg he push you into a comporation room.")       
+        print("anythinhg he push you into a comporation room.")
 
         sleep(1.0)
 
-        print("\n")  
-    
-        print("A wild corporate appear")        
-        
+        print("\n")
+
+        print("A wild corporate appear")
+
         action = 4
-        
-        #fight loop
-        while action > 3 and action < 5:    
-            #boss health checker(action 8 starter)
+
+        # fight loop
+        while action > 3 and action < 5:
+            # boss health checker(action 8 starter)
             if boss1.health <= 0:
                 sleep(1.0)
-            
-                print("\n")                 
-                
+
+                print("\n")
+
                 print("You killed the", boss1.name, "for money.", )
-                
-                #enemie gold reward
+
+                # enemie gold reward
                 player1.gold = player1.gold + boss1.gold
-                
+
                 sleep(1.0)
-            
-                print("\n")      
-                
+
+                print("\n")
+
                 print("+", boss1.gold, "gold")
-                
+
                 action = 8
-                
+
                 break
-            
-            #player health checker
+
+            # player health checker
             if player1.health <= 0:
-
                 sleep(1.0)
-            
-                print("\n")    
 
-                deaths = ["You should have begged for your recommendation", "You met Jeffrey Epstein, faggot", "You got sued for denying cookies(how could you?!"]
+                print("\n")
+
+                deaths = ["You should have begged for your recommendation",
+                          "You met Jeffrey Epstein, faggot",
+                          "You got sued for denying cookies(how could you?!"]
                 randomDeath = random.choice(deaths)
                 print(randomDeath)
 
-                #gold lost on death
+                # gold lost on death
                 deathLost = player1.gold * 0.15
 
                 player1.gold = player1.gold - deathLost
 
                 sleep(1.0)
-            
-                print("\n")    
 
-                print("You lost", deathLost * 0.15, "Gold")   
+                print("\n")
+
+                print("You lost", deathLost * 0.15, "Gold")
 
                 sleep(1.0)
-            
-                print("\n")    
 
-                #stats
+                print("\n")
+
+                # stats
                 playerStats()
 
                 action = 7
 
-                break     
-                        
+                break
+
             sleep(1.0)
-            
-            print("\n")   
-            
-                        
-            #stats board
-            #stats
+
+            print("\n")
+
+            # stats board
+            # stats
             playerStats()
 
             sleep(1.0)
-            
-            print("\n")   
-            
+
+            print("\n")
+
             print("name =       ", boss1.name)
             print("gold =       ", boss1.gold)
             print("min damage = ", boss1.mindamage)
             print("max damage = ", boss1.maxdamage)
             print("health =     ", boss1.health)
-            
+
             sleep(1.0)
 
-            print("\n")   
-            
-            #action list
+            print("\n")
+
+            # action list
             print("1: Attack")
             print("2: Use item")
-            print("3: Run away")   
+            print("3: Run away")
 
             sleep(1.0)
 
-            print("\n")   
+            print("\n")
 
             action = int(input("What do? : "))
-            
-            #stop player from going above 3 actions
+
+            # stop player from going above 3 actions
             if action > 3:
                 action = 1
-            
-            #attack action
+
+            # attack action
             if action == 1:
                 sleep(1.0)
 
-                print("\n")      
-                
-                attacks = ["You call him a bigot", "You jizz in his logo", "You show him the most sacred book 'James Charles wet dream'"]
-                
+                print("\n")
+
+                attacks = ["You call him a bigot",
+                           "You jizz in his logo",
+                           "You show him the most sacred book 'James Charles wet dream'"]
+
                 randomAttack = random.choice(attacks)
-                    
-                print(randomAttack) 
-            
+
+                print(randomAttack)
+
                 pdamage = random.randint(player1.mindamage, player1.maxdamage)
-                
+
                 boss1.health = boss1.health - pdamage
-                
+
                 sleep(1.0)
 
-                print("\n")  
-                
-                print("That dealt", pdamage, "damage to him") 
-                
+                print("\n")
+
+                print("That dealt", pdamage, "damage to him")
+
                 edamage = random.randint(boss1.mindamage, boss1.maxdamage)
-                
+
                 player1.health = player1.health - edamage
-                
+
                 sleep(1.0)
 
-                print("\n")  
-                
-                attacks = ["The enemie ask for your opnion", "The enemie ask for you to fill out a form", "The enemie try to steal your data"]
+                print("\n")
+
+                attacks = ["The enemie ask for your opnion",
+                           "The enemie ask for you to fill out a form",
+                           "The enemie try to steal your data"]
                 randomAttack = random.choice(attacks)
-                print(randomAttack) 
-                
+                print(randomAttack)
+
                 sleep(1.0)
 
-                print("\n")  
-                
-                print("That dealt", edamage, "damage to you")                 
-                
+                print("\n")
+
+                print("That dealt", edamage, "damage to you")
+
                 action = 4
-                
-            #item action (icomplete)
+
+            # item action (icomplete)
             if action == 2:
                 sleep(1.0)
 
                 print("\n")
-                
+
                 print("You have no items")
-                
+
                 action = 4
-                
-            #escape action    
+
+            # escape action
             if action == 3:
                 sleep(1.0)
 
-                print("\n") 
-                
-                print("You escaped this captalist Non Beggar")        
-            
+                print("\n")
+
+                print("You escaped this captalist Non Beggar")
+
                 action = 7
-        
-    #fight action
+
+    # fight action
     if action == 2:
-        #enemies list
-        enemie1 = enemie("Poor Beggar", "", random.randint(1,2), 1, random.randint(player1.maxdamage - 3 , player1.maxdamage - 1), 30)
-        enemie2 = enemie("Medium Class Beggar", "", random.randint(1,4), 1, random.randint(player1.maxdamage - 3 , player1.maxdamage - 1), 30)
-        enemie3 = enemie("Rich Beggar", "", random.randint(1,7), 1, random.randint(player1.maxdamage - 3 , player1.maxdamage - 1), 30)
-        enemie4 = enemie("Non Beggar", "", random.randint(1,10), 1, random.randint(player1.maxdamage - 3 , player1.maxdamage - 1), 30)
-        
-        #enemie type choose random
+        # enemies list
+        enemie1 = enemie("Poor Beggar", "", random.randint(1, 2), 1,
+                         random.randint(player1.maxdamage - 3, player1.maxdamage - 1), 30)
+        enemie2 = enemie("Medium Class Beggar", "", random.randint(1, 4), 1,
+                         random.randint(player1.maxdamage - 3, player1.maxdamage - 1), 30)
+        enemie3 = enemie("Rich Beggar", "", random.randint(1, 7), 1,
+                         random.randint(player1.maxdamage - 3, player1.maxdamage - 1), 30)
+        enemie4 = enemie("Non Beggar", "", random.randint(1, 10), 1,
+                         random.randint(player1.maxdamage - 3, player1.maxdamage - 1), 30)
+
+        # enemie type choose random
         enemies = (enemie1, enemie2, enemie3, enemie4)
         enemieFight = random.choice(enemies)
-        
+
         sleep(1.0)
-    
-        print("\n") 
-        
-        print("A wild Beggar appears")   
-        
+
+        print("\n")
+
+        print("A wild Beggar appears")
+
         action = 4
-        
-        #combat action loop
-        while action > 3 and action < 5:    
-            #enemie health checker
+
+        # combat action loop
+        while action > 3 and action < 5:
+            # enemie health checker
             if enemieFight.health <= 0:
                 sleep(1.0)
-            
-                print("\n")                 
-                
+
+                print("\n")
+
                 enemiesLeft = enemiesLeft - 1
-                
+
                 print("You killed a random", enemieFight.name, "for money.", )
-                
+
                 sleep(1.0)
-            
-                print("\n")  
-                
+
+                print("\n")
+
                 print(enemiesLeft, "beggars left")
-                
-                #enemie gold reward
+
+                # enemie gold reward
                 player1.gold = player1.gold + enemieFight.gold
-                
+
                 sleep(1.0)
-            
-                print("\n")      
-                
+
+                print("\n")
+
                 print("+", enemieFight.gold, "gold")
-                
+
                 action = 7
-                
+
                 break
 
-            #player health checker
+            # player health checker
             if player1.health <= 0:
-
                 sleep(1.0)
-            
-                print("\n")    
 
-                deaths = ["You should have begged for your gold", "You met Ellen DeGeneres and killed yourself(she is fucking mean)", "You got sued for spanking a beggar(wtf are doing with your life)"]
+                print("\n")
+
+                deaths = ["You should have begged for your gold",
+                          "You met Ellen DeGeneres and killed yourself(she is fucking mean)",
+                          "You got sued for spanking a beggar(wtf are doing with your life)"]
                 randomDeath = random.choice(deaths)
                 print(randomDeath)
 
@@ -945,232 +966,245 @@ while action > 6 and action < 8:
                 player1.gold = player1.gold - deathLost
 
                 sleep(1.0)
-            
-                print("\n")    
 
-                print("You lost", deathLost * 0.15, "Gold")   
+                print("\n")
+
+                print("You lost", deathLost * 0.15, "Gold")
 
                 sleep(1.0)
-            
-                print("\n")    
 
-                #stats
+                print("\n")
+
+                # stats
                 playerStats()
 
                 action = 7
 
-                break   
-            
-            #enemie limit checker
+                break
+
+                # enemie limit checker
             if enemiesLeft == 0:
                 sleep(1.0)
 
-                print("\n")   
-                
+                print("\n")
+
                 print("No beggars left. You killed the entire population like damn")
-                
+
                 action = 7
-                
+
                 break
-            
+
             sleep(1.0)
 
-            print("\n")  
-            
-            #stats board
+            print("\n")
+
+            # stats board
             playerStats()
 
             sleep(1.0)
-            
-            print("\n")   
-            
-            #enemie stats
+
+            print("\n")
+
+            # enemie stats
             randEneStat()
-            
+
             sleep(1.0)
 
-            print("\n")   
-            
-            #action list
+            print("\n")
+
+            # action list
             print("1: Attack")
             print("2: Use item")
-            print("3: Run away")   
+            print("3: Run away")
 
             sleep(1.0)
 
-            print("\n")   
+            print("\n")
 
             action = int(input("What do? : "))
-            
-            #stop player from going above 3 actions
+
+            # stop player from going above 3 actions
             if action > 3:
                 action = 1
-            
-            #attack action
+
+            # attack action
             if action == 1:
                 sleep(1.0)
 
-                print("\n")      
-                
-                attacks = ["You call him a faggot", "You jizz in his face", "You show him the most sacred book 'Zabiba and the King'"]
+                print("\n")
+
+                attacks = ["You call him a faggot", "You jizz in his face",
+                           "You show him the most sacred book 'Zabiba and the King'"]
                 randomAttack = random.choice(attacks)
-                print(randomAttack) 
-                
+                print(randomAttack)
+
                 pdamage = random.randint(player1.mindamage, player1.maxdamage)
-                
+
                 enemieFight.health = enemieFight.health - pdamage
-                
+
                 sleep(1.0)
 
-                print("\n")  
-                
-                print("That dealt", pdamage, "damage to him") 
-                
+                print("\n")
+
+                print("That dealt", pdamage, "damage to him")
+
                 edamage = random.randint(enemieFight.mindamage, enemieFight.maxdamage)
-                
+
                 player1.health = player1.health - edamage
-                
+
                 sleep(1.0)
 
-                print("\n")  
-                
-                attacks = ["The enemie ask for money", "The enemie ask for you to jizz on his face", "The enemie try to steal your gold"]
+                print("\n")
+
+                attacks = ["The enemie ask for money", "The enemie ask for you to jizz on his face",
+                           "The enemie try to steal your gold"]
                 randomAttack = random.choice(attacks)
-                print(randomAttack) 
-                
+                print(randomAttack)
+
                 sleep(1.0)
 
-                print("\n")  
-                
-                print("That dealt", edamage, "damage to you")                 
-                
+                print("\n")
+
+                print("That dealt", edamage, "damage to you")
+
                 action = 4
-                
-            #item action (icomplete)
+
+            # item action (icomplete)
             if action == 2:
                 sleep(1.0)
 
                 print("\n")
-                
+
                 print("You have no items")
-                
+
                 action = 4
-                
-            #escape action    
+
+            # escape action
             if action == 3:
                 sleep(1.0)
 
-                print("\n") 
-                
-                print("You escaped")        
-            
+                print("\n")
+
+                print("You escaped")
+
                 action = 7
-        
-    #work loop    
+
+    # work loop
     while action > 2 and action < 4:
-        #work limit checker
+        # work limit checker
         if worksLeft == 0:
             sleep(1.0)
 
-            print("\n")   
-            
+            print("\n")
+
             print("No works left. You're a fucking 'WorkCuck'")
-            
+
             action = 7
-            
+
             break
 
-        #work action
+        # work action
         sleep(1.0)
 
-        print("\n")     
-        
-        works = ["A random ruper lick your awful toe. Do you even clean it?", "A random ruper ask you to clean his house and try to calm his wife", "A random ruper ask you to kill a debtor (very sexy)", "A random ruper ask you to do an abortion", "A random ruper ask you to eat a weird package and cross the border", "A random ruper ask you to call someone a rupla (U got beat up bad)"]
+        print("\n")
+
+        works = ["A random ruper lick your awful toe. Do you even clean it?",
+                 "A random ruper ask you to clean his house and try to calm his wife",
+                 "A random ruper ask you to kill a debtor (very sexy)",
+                 "A random ruper ask you to do an abortion",
+                 "A random ruper ask you to eat a weird package and cross the border",
+                 "A random ruper ask you to call someone a rupla (U got beat up bad)"]
+
         randomWork = random.choice(works)
-        print(randomWork) 
-        
+        print(randomWork)
+
         gotGold = random.randint(1, 10)
-        
+
         player1.gold = player1.gold + gotGold
-        
+
         sleep(1.0)
 
-        print("\n") 
-        
+        print("\n")
+
         print("+", gotGold, "gold")
-        
+
         worksLeft = worksLeft - 1
 
         sleep(1.0)
 
-        print("\n") 
-        
+        print("\n")
+
         print(worksLeft, "works left")
-        
+
         action = 7
-        
-    #beg loop
+
+    # beg loop
     while action > 3 and action < 5:
-        #beg limit checker
+        # beg limit checker
         if begsLeft == 0:
             sleep(1.0)
 
-            print("\n")   
-            
+            print("\n")
+
             print("No begs left. Stop being leech, your not even THAT poor")
-            
+
             action = 7
-            
+
             break
 
-        #beg action    
+        # beg action
         sleep(1.0)
 
-        print("\n")     
-        
-        begs = ["You asked David Baszucki for child money", "You asked a beggar for money", "You asked a ruper to give you good time", "You gave up and stole a drunk illegal immigrant", "You searched a hospital trash can(it hurst when you pee)", "You found a pendrive with a image and a code(Worth money i guess?)"]
+        print("\n")
+
+        begs = ["You asked David Baszucki for child money",
+                "You asked a beggar for money",
+                "You asked a ruper to give you good time",
+                "You gave up and stole a drunk illegal immigrant",
+                "You searched a hospital trash can(it hurst when you pee)",
+                "You found a pendrive with a image and a code(Worth money i guess?)"]
         randomBeg = random.choice(begs)
-        print(randomBeg) 
-        
+        print(randomBeg)
+
         gotGold = random.randint(0, 2)
-        
-        #Got gold? checker
+
+        # Got gold? checker
         if gotGold == 0:
             sleep(1.0)
 
-            print("\n") 
-            
+            print("\n")
+
             print("Nothing :(")
-            
+
             action = 7
-            
+
             break
 
-        #beg action continuation
+        # beg action continuation
         player1.gold = player1.gold + gotGold
-        
+
         sleep(1.0)
 
-        print("\n") 
-        
+        print("\n")
+
         print("+", gotGold, "gold")
-        
+
         begsLeft = begsLeft - 1
 
         sleep(1.0)
 
-        print("\n") 
-        
+        print("\n")
+
         print(begsLeft, "begs left")
-        
+
         action = 7
-            
-    #shop action
+
+    # shop action
     while action > 4 and action < 6:
         sleep(1.0)
 
         print("\n")
-        
+
         print("1: Items")
         print("2: Equipment")
         print("3: Stats")
@@ -1209,9 +1243,9 @@ while action > 6 and action < 8:
 
                 howMucHealth = int(input("How much health : "))
 
-                healthCheck = player1.health - howMucHealth 
+                healthCheck = player1.health - howMucHealth
 
-                if healthCheck > 1:    
+                if healthCheck > 1:
 
                     howMuchGold = 0
 
@@ -1221,16 +1255,15 @@ while action > 6 and action < 8:
 
                     player1.health = player1.health - howMucHealth
 
-                    action = 3 
+                    action = 3
 
                     break
 
-                else: 
-                
+                else:
+
                     action = 3
 
                 break
-                
 
             if action == 2:
                 sleep(1.0)
@@ -1258,7 +1291,7 @@ while action > 6 and action < 8:
 
         if action == 4:
             print("")
-            
+
         if action == 5:
             sleep(1.0)
 
