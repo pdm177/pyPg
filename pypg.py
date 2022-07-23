@@ -677,10 +677,12 @@ while action > 5 and action < 7:
         action = 7
 
 # action 7
+
 # action 7 "counter variables"
 enemiesLeft = 5
 worksLeft = 5
 begsLeft = 5
+
 # loop start here
 while action > 6 and action < 8:
     # save
@@ -978,6 +980,23 @@ while action > 6 and action < 8:
                 # stats
                 playerStats()
 
+                print("\n")
+
+                yOrN = input('Restart? y/n:')
+
+                if yOrN == "y":
+                    print("\n")
+
+                    print("You got revived by the ROBLOX © mod (he thinks you're a pedophile)")
+
+                    player1.health = 100
+
+                else:
+                    print("\n")
+                    
+                    print("ok")
+                
+
                 action = 7
 
                 break
@@ -1088,7 +1107,7 @@ while action > 6 and action < 8:
                 print("You escaped")
 
                 action = 7
-
+            
     # work loop
     while action > 2 and action < 4:
         # work limit checker
@@ -1146,7 +1165,7 @@ while action > 6 and action < 8:
 
             print("\n")
 
-            print("No begs left. Stop being leech, your not even THAT poor")
+            print("No begs left. Stop being a leech, your not even THAT poor")
 
             action = 7
 
@@ -1289,16 +1308,16 @@ while action > 6 and action < 8:
             if action == 5:
                 action = 3
 
-        if action == 4:
-            print("")
+            if action == 4:
+                print("")
 
-        if action == 5:
-            sleep(1.0)
+            if action == 5:
+                sleep(1.0)
 
-            print("\n")
+                print("\n")
 
-            print("You leave walmart™")
+                print("You leave walmart™")
 
-            action = 7
+                action = 7
 
-            break
+                break
