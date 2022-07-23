@@ -555,9 +555,9 @@ while action > 5 and action < 7:
 
         print("\n")
 
-        print("Bartender says 'You look like a 'soap boy'.")
+        print("Bartender says You look like a 'soap boy'.")
         print("What such a young and retarded boy is doing")
-        print("here is Homo Duro?'")
+        print("here in Homo Duro?'")
 
         sleep(1.0)
 
