@@ -131,6 +131,7 @@ while action > -3 and action < -1:
     print("\n")
 
     # stat list(again)
+    playerStats()
 
     sleep(1.0)
 
@@ -780,7 +781,7 @@ while action > 6 and action < 8:
 
                 print("\n")
 
-                print("You lost", deathLost * 0.15, "Gold")
+                print("You lost", deathLost, "Gold")
 
                 sleep(1.0)
 
@@ -971,7 +972,7 @@ while action > 6 and action < 8:
 
                 print("\n")
 
-                print("You lost", deathLost * 0.15, "Gold")
+                print("You lost", deathLost, "Gold")
 
                 sleep(1.0)
 
@@ -984,6 +985,9 @@ while action > 6 and action < 8:
 
                 yOrN = input('Restart? y/n:')
 
+                #restart action
+
+                #restart
                 if yOrN == "y":
                     print("\n")
 
@@ -991,12 +995,16 @@ while action > 6 and action < 8:
 
                     player1.health = 100
 
+                #not restart
                 else:
                     print("\n")
                     
                     print("ok")
-                
 
+                    action = 999999999
+                    
+                    break
+                
                 action = 7
 
                 break
@@ -1233,9 +1241,118 @@ while action > 6 and action < 8:
         if action == 1:
             print("")
 
-        if action == 2:
-            print("")
+        while action > 1 and action < 3:
+            print("\n")
 
+            print("1: used condom (+ 3 defense) -- 5 gold")
+            print("2: medieval glock 18 (+ 3 max dmg) -- 3 gold")
+            print("3: insurance scam (+ 3 min dmg) -- 5 gold")
+            print("4: tail boner pad (+ 3 defense -- 5 gold")
+            print("5: back")
+
+            print("\n")
+
+            action = int(input("What do? : "))
+
+            if action == 1:
+                yOrN = input('sure y/n: ')
+
+                if yOrN == "y": 
+                    if player1.gold > 5:
+                        player1.defense = player1.defense + 3
+
+                        player1.gold = player1.gold - 5
+
+                    else:
+                        print("\n")
+
+                        print("not enough gold")
+                        
+                        action = 2
+
+                    print("\n")
+
+                    playerStats()
+                
+                else:
+                    action = 2
+
+
+
+            if action == 2:
+                yOrN = input('sure y/n: ')
+
+                if yOrN == "y":
+                    
+                    if player1.gold > 3:
+                        player1.defense = player1.maxdamage + 3
+                    
+                        player1.gold = player1.gold - 3
+
+                    else:
+                        print("\n")
+
+                        print("not enough gold")
+                        
+                        action = 2
+
+                    print("\n")
+
+                    playerStats()
+
+                else:
+                    action = 2    
+
+            if action == 3:    
+                yOrN = input('sure y/n: ')
+
+                if yOrN == "y":                    
+                    if player1.gold > 5:
+                        player1.defense = player1.mindamage + 3
+                    
+                        player1.gold = player1.gold - 5
+
+                    else:
+                        print("\n")
+
+                        print("not enough gold")
+                        
+                        action = 2
+
+                    print("\n")
+
+                    playerStats()
+
+                else:
+                    action = 2    
+
+            if action == 4:    
+                yOrN = input('sure y/n: ')
+
+                if yOrN == "y":
+                    player1.defense = player1.defense + 3
+                    
+                    if player1.gold > 5:
+                        player1.gold = player1.gold - 5
+
+                    else:
+                        print("\n")
+
+                        print("not enough gold")
+                        
+                        action = 2
+
+                    print("\n")
+
+                    playerStats()
+
+                else:
+                    action = 2    
+
+
+                
+
+        #sell stats
         while action > 2 and action < 4:
             sleep(1.0)
 
@@ -1244,7 +1361,7 @@ while action > 6 and action < 8:
             print("1: Sell health")
             print("2: Sell Min damage")
             print("3: Sell Max damage")
-            print("4: Defense")
+            print("4: sell Defense")
             print("5: back")
 
             sleep(1.0)
@@ -1262,6 +1379,7 @@ while action > 6 and action < 8:
 
                 howMucHealth = int(input("How much health : "))
 
+                #check if player not dead
                 healthCheck = player1.health - howMucHealth
 
                 if healthCheck > 1:
@@ -1279,6 +1397,9 @@ while action > 6 and action < 8:
                     break
 
                 else:
+                    print("\n")  
+
+                    print("Thats not how you commit suicide")
 
                     action = 3
 
