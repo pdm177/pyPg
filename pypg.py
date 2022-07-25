@@ -1525,8 +1525,6 @@ while action > 6 and action < 8:
     
 
     # shop action
-    
-
     while action > 4 and action < 6: 
         actionChoose = 7
 
