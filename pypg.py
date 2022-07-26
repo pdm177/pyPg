@@ -183,7 +183,7 @@ def shop():
 
                 if yOrN == "y":
                     if player1.gold >= itemPrice1:
-                        statPlayer1 = statPlayer1 + itemStat1
+                        exec(statPlayer1, 5000) == exec(statPlayer1,5000)+ itemStat1
 
                         player1.gold = player1.gold - 5
 
