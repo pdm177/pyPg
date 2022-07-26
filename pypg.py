@@ -74,7 +74,7 @@ yOrN = input('load save?(only if you already played) y/n: ')
 # save function
 def save():
     pickle.dump([action, player1.maxdamage, player1.mindamage, player1.gold, player1.health, player1.defense],
-                open("save.pi", "wb"))
+        open("save.pi", "wb"))
 
 
 # save load
@@ -112,8 +112,6 @@ def randEneStat():
 
 def shop():
     #custom vars = actionChoose itemStat(1 to 4) itemPrice(1 to 4) and statsType(1 to 4)
-    import player1
-    
     global action
     global actionChoose 
 
@@ -141,11 +139,12 @@ def shop():
     global itemPrice4
     global statPlayer4
     
+    #shop loop
     while action > 4 and action < 6:
         sleep(1.0)
-
+        
         print("\n")
-
+        #action list(shop)
         print("1: Items")
         print("2: Equipment")
         print("3: Stats")
@@ -157,12 +156,14 @@ def shop():
         print("\n")
 
         action = int(input("What do? : "))
-
+        
+        #item action
         if action == 1:
             sleep(1.0)
 
             print("")
-
+        
+        #equipament action
         while action > 1 and action < 3:
             sleep(1.0)
 
@@ -185,7 +186,7 @@ def shop():
 
                 if yOrN == "y":
                     if player1.gold >= itemPrice1:
-                        locals()["statPlayer1"] == locals()["statPlayer1"] + itemStat1
+                        exec("statsPlayer1") == exec("statsPlayer1")+ itemStat1
 
                         player1.gold = player1.gold - 5
 
@@ -312,11 +313,9 @@ def shop():
                     
 
             if action == 5:
-                action = actionChoose
-
-                
-
-                    # sell stats
+                action = actionChoose 
+                    
+        #sell stats action
         while action > 2 and action < 4:
             sleep(1.0)
 
@@ -333,8 +332,8 @@ def shop():
             print("\n")
 
             action = int(input("What do? : "))
-
-            if action == 3:
+            #sell health
+            if action == 1:
                 sleep(1.0)
 
                 print("\n")
@@ -368,44 +367,47 @@ def shop():
                     action = 3
 
                 break
-
+            #sell min dmg
             if action == 2:
                 sleep(1.0)
 
                 print("\n")
 
                 howMucMiDamage = int(input("How much min damage : "))
-
+            
+            #sell max dmg
             if action == 3:
                 sleep(1.0)
 
                 print("\n")
 
                 howMuchMaDamage = int(input("How much max damage : "))
-
+            
+            #sell defense
             if action == 4:
                 sleep(1.0)
 
                 print("\n")
 
                 howMucDefense = int(input("How much defense : "))
-
+                
+            #back action    
             if action == 5:
                 action = 3
 
-            if action == 4:
-                print("")
+        if action == 4:
+            print("")
 
-            if action == 5:
-                sleep(1.0)
+        if action == 5:
+            sleep(1.0)
 
-                print("\n")
+            print("\n")
 
-                print("You leave walmart™")
+            print("You leave walmart™")
 
-                action = actionChoose
+            action = actionChoose
 
-                break
+            break
 
 
 # All the game choices are a epecific action from 1 to 5
@@ -1528,6 +1530,7 @@ while action > 6 and action < 8:
 
     # shop action
     while action > 4 and action < 6: 
+        #shop equipament list
         actionChoose = 7
 
         itemName1 = "used condom"
@@ -1553,5 +1556,6 @@ while action > 6 and action < 8:
         statType4 = "defense"
         statPlayer4 = "player1.defense"
         itemPrice4 = 5
-
+        
+        #start shop
         shop()
