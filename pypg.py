@@ -112,6 +112,8 @@ def randEneStat():
 
 def shop():
     #custom vars = actionChoose itemStat(1 to 4) itemPrice(1 to 4) and statsType(1 to 4)
+    import player1
+    
     global action
     global actionChoose 
 
@@ -183,7 +185,7 @@ def shop():
 
                 if yOrN == "y":
                     if player1.gold >= itemPrice1:
-                        globals()[statPlayer1] == vars()[statPlayer1]+ itemStat1
+                        globals()["statPlayer1"] == vars()["statPlayer1"]+ itemStat1
 
                         player1.gold = player1.gold - 5
 
