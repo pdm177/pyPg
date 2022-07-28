@@ -191,7 +191,7 @@ def shop():
 
                         player1.gold = player1.gold - 5
 
-                        action = 7
+                        action = actionChoose
 
                     else:
                         sleep(1.0)
