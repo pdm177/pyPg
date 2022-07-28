@@ -187,12 +187,11 @@ def shop():
 
                 if yOrN == "y":
                     if player1.gold >= itemPrice1:
-                        setattr(player1, statPlayer1, + itemStat1)
+                        setattr(player1, statPlayer1, itemStat1)
 
-                        print(getattr(player1, statPlayer1))
                         player1.gold = player1.gold - 5
 
-                        action = 2
+                        action = 7
 
                     else:
                         sleep(1.0)
@@ -218,11 +217,11 @@ def shop():
                 if yOrN == "y":
 
                     if player1.gold >= itemPrice2:
-                        setattr(player1, statPlayer2, + itemStat2)
+                        setattr(player1, statPlayer2, itemStat2)
 
                         player1.gold = player1.gold - itemPrice2
 
-                        action = 2
+                        action = actionChoose
 
                     else:
                         sleep(1.0)
@@ -251,11 +250,11 @@ def shop():
 
                 if yOrN == "y":
                     if player1.gold >= itemPrice3:
-                        setattr(player1, statPlayer3, + itemStat3)
+                        setattr(player1, statPlayer3, itemStat3)
 
                         player1.gold = player1.gold - itemPrice3
 
-                        action = 2
+                        action = actionChoose
 
                     else:
                         sleep(1.0)
@@ -285,11 +284,11 @@ def shop():
                 if yOrN == "y":
 
                     if player1.gold >= itemPrice4:
-                        setattr(player1, statPlayer4, + itemStat4)
+                        setattr(player1, statPlayer4, itemStat4)
 
                         player1.gold = player1.gold - itemPrice3
 
-                        action = 2
+                        action = actionChoose
 
                     else:
                         sleep(1.0)
@@ -1529,25 +1528,25 @@ while action > 6 and action < 8:
         actionChoose = 7
 
         itemName1 = "used condom"
-        itemStat1 = 3
+        itemStat1 = player1.defense + 3 
         statType1 = "defense"
         statPlayer1 = "defense"
         itemPrice1 = 5
 
         itemName2 = "medieval glock 18"
-        itemStat2 = 3
+        itemStat2 = player1.maxdamage + 3 
         statType2 = "max dmg"
         statPlayer2 = "maxdamage"
         itemPrice2 = 3
 
         itemName3 = "insurance scam"
-        itemStat3 = 3
+        itemStat3 = player1.mindamage + 3 
         statType3 = "min dmg"
         statPlayer3 = "mindamage"
         itemPrice3 = 5
 
         itemName4 = "tail boner pad"
-        itemStat4 = 3
+        itemStat4 = player1.defense + 3 
         statType4 = "defense"
         statPlayer4 = "defense"
         itemPrice4 = 5
