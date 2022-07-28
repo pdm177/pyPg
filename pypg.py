@@ -183,6 +183,10 @@ def shop():
             action = int(input("What do? : "))
 
             if action == 1:
+                sleep(1.0)
+
+                print("\n")
+
                 yOrN = input('sure y/n: ')
 
                 if yOrN == "y":
@@ -212,6 +216,10 @@ def shop():
                     action = 2
 
             if action == 2:
+                sleep(1.0)
+
+                print("\n")
+
                 yOrN = input('sure y/n: ')
 
                 if yOrN == "y":
@@ -347,7 +355,7 @@ def shop():
 
                     howMuchGold = howMucHealth * 30
 
-                    gold = gold + howMuchGold
+                    player1.gold = player1.gold + howMuchGold
 
                     player1.health = player1.health - howMucHealth
 
@@ -369,7 +377,28 @@ def shop():
 
                 print("\n")
 
-                howMucMiDamage = int(input("How much min damage : "))
+                howMuchMiDamage = int(input("How much min damage : "))
+
+                mindmgCheck = player1.health - howMuchMiDamage
+
+                if mindmgCheck > 0:
+
+                    howMuchGold = howMuchMiDamage * 50
+
+                    player1.gold = player1.gold + howMuchGold
+
+                    player1.mindamage = player1.mindamage - howMuchMiDamage
+
+                    action = 3
+
+                else:
+                    sleep(1.0)
+
+                    print("\n")
+
+                    print("...")
+
+                    action = 3
 
             # sell max dmg
             if action == 3:
@@ -379,13 +408,55 @@ def shop():
 
                 howMuchMaDamage = int(input("How much max damage : "))
 
+                maxdmgCheck = player1.health - howMuchMaDamage
+
+                if maxdmgCheck > 1:
+
+                    howMuchGold = howMuchMaDamage * 30
+
+                    player1.gold = player1.gold + howMuchGold
+
+                    player1.maxdamage = player1.maxdamage - howMuchMaDamage
+
+                    action = 3 
+
+                else:
+                    sleep(1.0)
+
+                    print("\n")
+
+                    print("...")
+
+                    action = 3
+
             # sell defense
             if action == 4:
                 sleep(1.0)
 
                 print("\n")
 
-                howMucDefense = int(input("How much defense : "))
+                howMuchDefense = int(input("How much defense : "))
+
+                mindmgCheck = player1.health - howMuchDefense
+
+                if mindmgCheck > 0:
+
+                    howMuchGold = howMuchDefense * 30
+
+                    player1.gold = player1.gold + howMuchGold
+
+                    player1.defense = player1.defense - howMuchDefense
+
+                    action = 3
+
+                else:
+                    sleep(1.0)
+
+                    print("\n")
+
+                    print("Baidu Antivirus.")
+
+                    action = 3
 
             # back action
             if action == 5:
@@ -406,8 +477,8 @@ def shop():
             break
 
 
-# All the game choices are a epecific action from 1 to 5
-# All the game levels are a epecific action from -... to 0 and 6 to ...
+# All the game choices are a especific action from 1 to 5
+# All the game levels are a especific action from -... to 0 and 6 to ...
 
 # action -2
 while action > -3 and action < -1:
@@ -630,7 +701,7 @@ while action > -1 and action < 1:
 
             print("\n")
 
-            deaths = ["You got analy raped by a sjw and died",
+            deaths = ["You got annaly raped by a sjw and died",
                       "You got sued for racism and died of aids",
                       "You got imaginary banned from twitter and got sentenced to death(and aids)"]
             randomDeath = random.choice(deaths)
@@ -670,7 +741,7 @@ while action > -1 and action < 1:
 
             print("\n")
 
-            deaths = ["You got analy raped by a sjw and died",
+            deaths = ["You got anally raped by a sjw and died",
                       "You got sued for racism and died of aids",
                       "You got imaginary banned from twitter and got sentenced to death(and aids)"]
             randomDeath = random.choice(deaths)
@@ -734,7 +805,7 @@ while action > -1 and action < 1:
                     action = 0
             # if not yes
             else:
-                deaths = ["You got analy raped by a sjw and died. But you're not based",
+                deaths = ["You got anally raped by a sjw and died. But you're not based",
                           "You got sued for racism and died of aids. But you're not based",
                           "You got imaginary banned from twitter and got sentenced to death(and aids). But you're not based"]
                 randomDeath = random.choice(deaths)
