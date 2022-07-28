@@ -1535,19 +1535,19 @@ while action > 6 and action < 8:
         itemPrice1 = 5
 
         itemName2 = "medieval glock 18"
-        itemStat2 = player1.defense + 3
+        itemStat2 = 3
         statType2 = "max dmg"
         statPlayer2 = "maxdamage"
         itemPrice2 = 3
 
         itemName3 = "insurance scam"
-        itemStat3 = player1.defense + 3
+        itemStat3 = 3
         statType3 = "min dmg"
         statPlayer3 = "mindamage"
         itemPrice3 = 5
 
         itemName4 = "tail boner pad"
-        itemStat4 = player1.defense + 3
+        itemStat4 = 3
         statType4 = "defense"
         statPlayer4 = "defense"
         itemPrice4 = 5
