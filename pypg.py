@@ -20,7 +20,7 @@ class player:
 
 
 # inventory class
-class invertory:
+class inventory:
     def __init__(self, n="name"):
         self.item1 = n
         self.item2 = n
@@ -74,13 +74,13 @@ yOrN = input('load save?(only if you already played) y/n: ')
 # save function
 def save():
     pickle.dump([action, player1.maxdamage, player1.mindamage, player1.gold, player1.health, player1.defense],
-                open("save.pi", "wb"))
+    open("save.pi", "wb"))
 
 
 # save load
 if yOrN == "y":
     action, player1.maxdamage, player1.mindamage, player1.gold, player1.health, player1.defense = pickle.load(
-        open("save.pi", "rb"))
+    open("save.pi", "rb"))
 
 # debug starter
 if namep == "debug":
@@ -319,7 +319,7 @@ def shop():
             if action == 5:
                 action = actionChoose
 
-                # sell stats action
+        # sell stats action
         while action > 2 and action < 4:
             sleep(1.0)
 
@@ -560,6 +560,65 @@ def itemstats():
     0,
     5)
 
+    DildoGolden = item(
+    "Dildo Gold(dom)",
+    "Fucks everything up. Just like the usa",
+    100000000000000,
+    100000000000000,
+    100000000000000,
+    999999999999969
+    )
+
+player1 = inventory(
+"none",
+"none",
+"none",
+"none"   
+)
+
+# item shop
+def itemshop():
+    player1 = inventory(
+    "none",
+    "none",
+    "none",
+    "none"   
+    )
+
+    sleep(1.0)
+
+    print("\n")
+
+    print(player1.item1)
+    print(player1.item2)
+    print(player1.item3)
+    print(player1.item4)
+
+    selectinv = "item1"
+    if player1.item1  == "none" or player1.item2  == "none" or player1.item3  == "none" or player1.item4  == "none":
+        sleep(1.0)
+
+        print("\n")
+
+        print("Welcome to walmart sir, I can see you got no items, what would you wnat?")
+        
+    if player1.item1  == "none" or player1.item2  == "none" or player1.item3  == "none" or player1.item4  == "none":
+        sleep(1.0)
+
+        print("\n")
+
+        print("Welcome to wallmart sir, what would you want?") 
+
+    print("1: buy item slot 1")
+    print("2: buy item slot 2")
+    print("3: buy item slot 3")
+    print("4: buy item slot 4")
+    print("1: leave")
+
+    
+
+
+
 # All the game choices are a especific action from 1 to 5
 # All the game levels are a especific action from -... to 0 and 6 to ...
 
@@ -624,7 +683,7 @@ while action > -3 and action < -1:
 
         # if not "no"
         else:
-            yOrN = input('Wtf?! i just want to known y/n: ')
+            yOrN = input('Wtf?! I just want to known y/n: ')
             sleep(1.0)
 
             # if yes(action 0 starter)
