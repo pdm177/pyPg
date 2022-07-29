@@ -600,20 +600,59 @@ def itemshop():
 
         print("\n")
 
-        print("Welcome to walmart sir, I can see you got no items, what would you wnat?")
+        print("Welcome to Walmart™ sir, I can see you got no items, what would you wnat?")
         
     if player1.item1  == "none" or player1.item2  == "none" or player1.item3  == "none" or player1.item4  == "none":
         sleep(1.0)
 
         print("\n")
 
-        print("Welcome to wallmart sir, what would you want?") 
+        print("Welcome to Walmart™ sir, what would you want?") 
+
+    sleep(1.0)
+
+    print("\n")
 
     print("1: buy item slot 1")
     print("2: buy item slot 2")
     print("3: buy item slot 3")
     print("4: buy item slot 4")
-    print("1: leave")
+    print("5: leave")
+
+    action = int(input("What do? : "))
+    
+    if action == 1:
+        sleep(1.0)
+
+        print("\n")
+
+    if action == 2:
+        sleep(1.0)
+
+        print("\n")
+
+    if action == 3:
+        sleep(1.0)
+
+        print("\n")
+
+    if action == 4:
+        sleep(1.0)
+
+        print("\n")
+
+    if action == 5:
+        sleep(1.0)
+
+        print("\n")
+
+        print("You leave Walmart™")
+
+        action = actionChoose
+
+
+    
+
 
     
 
