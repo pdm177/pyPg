@@ -478,69 +478,87 @@ def shop():
 
 #item list
 
-Healthpotion = item(
-"Health Potion",
-"Gives you 10 points of health", 
-0,
-10,
-0,
-1)
+def itemstats():
 
-StackHealthpotion = item(
-"Health Potion Stack",
-"Gives you 10 points of health", 
-0,
-10,
-0,
-5)
+    Healthpotion = item(
+    "Health Potion",
+    "Gives you 10 points of health", 
+    0,
+    10,
+    0,
+    1)
 
-BigHealthpotion = item(
-"Big Health Potion",
-"Gives you 60 points of health", 
-0,
-10,
-0,
-1)
+    StackHealthpotion = item(
+    "Health Potion Stack",
+    "Gives you 10 points of health", 
+    0,
+    10,
+    0,
+    5)
 
-StackBigHealthpotion = item(
-"Big Health Potion Stack",
-"Gives you 60 points of health", 
-0,
-60,
-0,
-5)
+    BigHealthpotion = item(
+    "Big Health Potion",
+    "Gives you 60 points of health", 
+    0,
+    10,
+    0,
+    1)
 
-StackBigHealthpotion = item(
-"Big Health Potion Stack",
-"Gives you 60 points of health", 
-0,
-60,
-0,
-5)
+    StackBigHealthpotion = item(
+    "Big Health Potion Stack",
+    "Gives you 60 points of health", 
+    0,
+    60,
+    0,
+    5)
 
-RedPilled = item(
-"You're red pilled take this",
-"Gives you 10 points of defense", 
-0,
-0,
-10,
-1)
+    StackBigHealthpotion = item(
+    "Big Health Potion Stack",
+    "Gives you 60 points of health", 
+    0,
+    60,
+    0,
+    5)
 
-Greanade = item(
-"Greanade",
-"Does 40 damage to the enemy", 
-0,
-40,
-0,
-1)
+    RedPilled = item(
+    "You're red pilled take this",
+    "Gives you 10 points of defense", 
+    0,
+    0,
+    10,
+    1)
 
-HolyGreanade = item(
-"Greanade",
-"Does 1000 damage to the enemy", 
-0,
-1000,
-0,
-1)
+    Greanade = item(
+    "Greanade",
+    "Does 40 damage to the enemy", 
+    0,
+    40,
+    0,
+    1)
+
+    HolyGreanade = item(
+    "Greanade",
+    "Does 1000 damage to the enemy", 
+    0,
+    1000,
+    0,
+    1)
+
+    TrowingDagger = item(
+    "Trowing Dagger",
+    "Does 25 damage to the enemy", 
+    0,
+    25,
+    0,
+    1)
+
+    TrowingDaggerStack = item(
+    "Trowing Dagger Stack",
+    "Does 25 damage to the enemy", 
+    0,
+    25,
+    0,
+    5)
 
 # All the game choices are a especific action from 1 to 5
 # All the game levels are a especific action from -... to 0 and 6 to ...
