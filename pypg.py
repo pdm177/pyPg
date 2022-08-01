@@ -170,10 +170,10 @@ def shop():
 
             print("\n")
 
-            print("1:", itemName1, " (+", itemStat1, "", statType1, ") --", itemPrice1, "gold")
-            print("2:", itemName2, " (+", itemStat2, "", statType2, ") --", itemPrice2, "gold")
-            print("3:", itemName3, " (+", itemStat3, "", statType3, ") --", itemPrice3, "gold")
-            print("4:", itemName4, " (+", itemStat4, "", statType4, ") --", itemPrice4, "gold")
+            print("1:", itemName1, " (+", itemPlus1, "", statType1, ") --", itemPrice1, "gold")
+            print("2:", itemName2, " (+", itemPlus2, "", statType2, ") --", itemPrice2, "gold")
+            print("3:", itemName3, " (+", itemPlus3, "", statType3, ") --", itemPrice3, "gold")
+            print("4:", itemName4, " (+", itemPlus4, "", statType4, ") --", itemPrice4, "gold")
             print("5: back")
 
             sleep(1.0)
@@ -1767,25 +1767,29 @@ while action > 6 and action < 8:
         actionChoose = 7
 
         itemName1 = "used condom"
-        itemStat1 = player1.defense + 3 
+        itemStat1 = player1.defense + 3
+        itemPlus1 = 3
         statType1 = "defense"
         statPlayer1 = "defense"
         itemPrice1 = 5
 
         itemName2 = "medieval glock 18"
-        itemStat2 = player1.maxdamage + 3 
+        itemStat2 = player1.maxdamage + 3
+        itemPlus2 = 3
         statType2 = "max dmg"
         statPlayer2 = "maxdamage"
         itemPrice2 = 3
 
         itemName3 = "insurance scam"
-        itemStat3 = player1.mindamage + 3 
+        itemStat3 = player1.mindamage + 3
+        itemPlus3 = 3
         statType3 = "min dmg"
         statPlayer3 = "mindamage"
         itemPrice3 = 5
 
         itemName4 = "tail boner pad"
-        itemStat4 = player1.defense + 3 
+        itemStat4 = player1.defense + 3
+        itemPlus4 = 3
         statType4 = "defense"
         statPlayer4 = "defense"
         itemPrice4 = 5
