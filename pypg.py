@@ -21,11 +21,11 @@ class player:
 
 # inventory class
 class inventory:
-    def __init__(self, n="name"):
+    def __init__(self, n="name", n1="name", n2="name",n3="name", n4="name" ):
         self.item1 = n
-        self.item2 = n
-        self.item3 = n
-        self.item4 = n
+        self.item2 = n2
+        self.item3 = n3
+        self.item4 = n4
 
 
 # item class
@@ -477,6 +477,7 @@ def shop():
             break
 
 #item list
+playerInv = inventory("none", "none", "none", "none")
 
 def itemstats():
 
@@ -569,40 +570,26 @@ def itemstats():
     999999999999969
     )
 
-player1 = inventory(
-"none",
-"none",
-"none",
-"none"   
-)
-
 # item shop
 def itemshop():
-    player1 = inventory(
-    "none",
-    "none",
-    "none",
-    "none"   
-    )
-
     sleep(1.0)
 
     print("\n")
 
-    print(player1.item1)
-    print(player1.item2)
-    print(player1.item3)
-    print(player1.item4)
+    print(playerInv.item1)
+    print(playerInv.item2)
+    print(playerInv.item3)
+    print(playerInv.item4)
 
     selectinv = "item1"
-    if player1.item1  == "none" or player1.item2  == "none" or player1.item3  == "none" or player1.item4  == "none":
+    if playerInv.item1  == "none" or playerInv.item2  == "none" or playerInv.item3  == "none" or playerInv.item4  == "none":
         sleep(1.0)
 
         print("\n")
 
         print("Welcome to Walmart™ sir, I can see you got no items, what would you wnat?")
         
-    if player1.item1  == "none" or player1.item2  == "none" or player1.item3  == "none" or player1.item4  == "none":
+    if playerInv.item1  == "none" or playerInv.item2  == "none" or playerInv.item3  == "none" or playerInv.item4  == "none":
         sleep(1.0)
 
         print("\n")
