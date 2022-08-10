@@ -637,14 +637,6 @@ def itemshop():
 
         action = actionChoose
 
-
-    
-
-
-    
-
-
-
 # All the game choices are a especific action from 1 to 5
 # All the game levels are a especific action from -... to 0 and 6 to ...
 
@@ -1514,7 +1506,7 @@ while action > 6 and action < 8:
                 action = 7
 
                 break
-
+            
             # enemie health checker
             if enemieFight.health <= 0:
                 sleep(1.0)
