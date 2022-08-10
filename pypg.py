@@ -1458,35 +1458,6 @@ while action > 6 and action < 8:
 
         # combat action loop
         while action > 3 and action < 5:
-            # enemie health checker
-            if enemieFight.health <= 0:
-                sleep(1.0)
-
-                print("\n")
-
-                enemiesLeft = enemiesLeft - 1
-
-                print("You killed a random", enemieFight.name, "for money.", )
-
-                sleep(1.0)
-
-                print("\n")
-
-                print(enemiesLeft, "beggars left")
-
-                # enemie gold reward
-                player1.gold = player1.gold + enemieFight.gold
-
-                sleep(1.0)
-
-                print("\n")
-
-                print("+", enemieFight.gold, "gold")
-
-                action = 7
-
-                break
-
             # player health checker
             if player1.health <= 0:
                 sleep(1.0)
@@ -1543,6 +1514,37 @@ while action > 6 and action < 8:
                 action = 7
 
                 break
+
+            # enemie health checker
+            if enemieFight.health <= 0:
+                sleep(1.0)
+
+                print("\n")
+
+                enemiesLeft = enemiesLeft - 1
+
+                print("You killed a random", enemieFight.name, "for money.", )
+
+                sleep(1.0)
+
+                print("\n")
+
+                print(enemiesLeft, "beggars left")
+
+                # enemie gold reward
+                player1.gold = player1.gold + enemieFight.gold
+
+                sleep(1.0)
+
+                print("\n")
+
+                print("+", enemieFight.gold, "gold")
+
+                action = 7
+
+                break
+
+            
 
                 # enemie limit checker
             if enemiesLeft == 0:
